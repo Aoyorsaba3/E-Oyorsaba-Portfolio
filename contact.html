@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<script src="js/script.js"></script>
+
+ <div class="reading-progress" aria-hidden="true">
+    <div class="reading-progress__bar"></div>
+</div>
+
+<header class="site-header">
+    <nav class="site-nav" aria-label="Main navigation">
+        <a class="site-logo" href="index.html">
+            EMILY A OYORSABA<span>.</span>
+        </a>
+
+        <p class="nav-edition">Independent Creative Portfolio / 2026</p>
+
+        <ul class="nav-links">
+            <li><a href="work.html">01 <span>/</span> Work</a></li>
+            <li><a href="about.html">02 <span>/</span> About</a></li>
+            <li><a href="contact.html#contact">03 <span>/</span> Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="contact">
+
+    <header>
+        <p>03 / Correspondence</p>
+        <h1>Let's Talk</h1>
+    </header>
+
+    <!-- Introduction -->
+    <section>
+        <h2>Have Something in Mind?</h2>
+
+        <div>
+            <p>
+                I'm interested in connecting with creative teams,
+                designers, and organizations working across graphic
+                design, visual communication, photography, and
+                multimedia.
+            </p>
+
+            <p>
+                Whether it's an internship, a collaborative project,
+                or an opportunity to bring a visual idea to life,
+                I'd love to hear what you're working on.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Details -->
+    <section>
+        <h2>Get in Touch</h2>
+
+        <div>
+            <address>
+                <p>
+                    <span>Email / </span>
+                    <a href="mailto:eoyorsaba17@example.com">
+                        eoyorsaba17.com
+                    </a>
+                </p>
+
+                <p>
+                    <span>LinkedIn / </span>
+                    <a href="YOUR-LINKEDIN-URL"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Professional Profile ↗
+                    </a>
+                </p>
+
+                <p>
+                    <span>Instagram / </span>
+                    <a href="YOUR-INSTAGRAM-URL"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Creative Work ↗
+                    </a>
+                </p>
+            </address>
+        </div>
+    </section>
+
+    <!-- Contact Form -->
+    <section>
+        <h2>Send a Message</h2>
+
+        <form action="#" method="post">
+
+            <div>
+                <label for="name">01 / Your Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="First and last name"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="email">02 / Your Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div>
+                <label for="subject">03 / What's This About?</label>
+                <select id="subject" name="subject" required>
+                    <option value="" disabled selected>
+                        Select an inquiry
+                    </option>
+                    <option value="Internship">
+                        Internship / Career Opportunity
+                    </option>
+                    <option value="Collaboration">
+                        Creative Collaboration
+                    </option>
+                    <option value="Project">
+                        Design / Multimedia Project
+                    </option>
+                    <option value="Other">
+                        Something Else
+                    </option>
+                </select>
+            </div>
+
+            <div>
+                <label for="message">04 / Your Message</label>
+                <textarea
+                    id="message"
+                    name="message"
+                    rows="6"
+                    placeholder="Tell me a little about what you have in mind..."
+                    required
+                ></textarea>
+            </div>
+
+            <button type="submit">
+                Send Inquiry ↗
+            </button>
+
+        </form>
+    </section>
+
+</section>

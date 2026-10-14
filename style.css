@@ -1,0 +1,947 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+:root {
+    --paper: #f3f0e8;
+    --ink: #191919;
+    --muted: #74716b;
+    --rule: #d8d4cb;
+    --accent: #469995;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-detail: 'DM Mono', monospace;
+
+    --page-width: 1440px;
+    --page-gutter: clamp(20px, 5vw, 76px);
+}
+
+/* =========================================
+   02. RESET & GLOBAL STYLES
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+}
+
+body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-display);
+    line-height: 1.6;
+}
+
+body::selection {
+    background: var(--accent);
+    color: white;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+button,
+input,
+textarea {
+    font: inherit;
+}
+
+button,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================
+   03. EDITORIAL MASTHEAD / NAVIGATION
+   ========================================= */
+
+body > header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--ink);
+}
+
+nav {
+    width: min(100%, var(--page-width));
+    min-height: 78px;
+    margin: 0 auto;
+    padding: 16px var(--page-gutter);
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+nav > a {
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.07em;
+    text-transform: uppercase;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: clamp(16px, 3vw, 42px);
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li a {
+    font-family: var(--font-detail);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    transition: color 180ms ease;
+}
+
+nav li a:hover,
+nav li a:focus-visible {
+    color: var(--accent);
+}
+
+/* =========================================
+   04. PAGE FRAME
+   ========================================= */
+
+main {
+    width: min(100%, var(--page-width));
+    margin: 0 auto;
+    padding: 0 var(--page-gutter);
+}
+
+#about,
+#contact {
+    padding: clamp(60px, 10vw, 130px) 0;
+}
+
+#about {
+    border-bottom: 1px solid var(--ink);
+}
+
+main section header p,
+main section > header > p {
+    margin: 0 0 18px;
+    font-family: var(--font-detail);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* =========================================
+   05. OVERSIZED EDITORIAL HEADLINES
+   ========================================= */
+
+main > section > header h1 {
+    max-width: 1000px;
+    margin: 0 0 clamp(54px, 9vw, 112px);
+
+    font-size: clamp(3.5rem, 10.5vw, 9.5rem);
+    font-weight: 600;
+    line-height: 0.88;
+    letter-spacing: -0.095em;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+}
+
+main > section > header h1::after {
+    content: ".";
+    color: var(--accent);
+}
+
+/* =========================================
+   06. CONTENT SECTIONS
+   ========================================= */
+
+#about > section,
+#contact > section {
+    display: grid;
+    grid-template-columns: minmax(140px, 0.7fr) minmax(0, 1.6fr);
+    gap: clamp(24px, 6vw, 100px);
+
+    padding: 32px 0 48px;
+    border-top: 1px solid var(--rule);
+}
+
+#about > section h2,
+#contact > section h2 {
+    margin: 0;
+    font-size: clamp(1.1rem, 2vw, 1.65rem);
+    line-height: 1.2;
+    letter-spacing: -0.055em;
+}
+
+#about > section p,
+#contact > section p {
+    max-width: 680px;
+    margin: 0 0 20px;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    line-height: 1.8;
+}
+
+#about > section p:last-child,
+#contact > section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Skills as an editorial index */
+
+#about > section ul {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 24px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#about > section ul li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    font-size: 1rem;
+}
+
+#about > section ul li::before {
+    content: "+ ";
+    color: var(--accent);
+    font-family: var(--font-detail);
+}
+
+/* =========================================
+   07. CONTACT INFORMATION
+   ========================================= */
+
+address {
+    font-style: normal;
+}
+
+address p {
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--rule);
+}
+
+address a {
+    overflow-wrap: anywhere;
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 5px;
+}
+
+address a:hover {
+    color: var(--accent);
+}
+
+/* =========================================
+   08. CONTACT FORM
+   ========================================= */
+
+form {
+    display: grid;
+    gap: 26px;
+    width: 100%;
+}
+
+form > div {
+    display: grid;
+    gap: 8px;
+}
+
+form label {
+    font-family: var(--font-detail);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 14px 0;
+    border: 0;
+    border-bottom: 1px solid var(--ink);
+    border-radius: 0;
+    outline: none;
+
+    background: transparent;
+    color: var(--ink);
+}
+
+form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+form input:focus,
+form textarea:focus {
+    border-bottom: 2px solid var(--accent);
+}
+
+form input:focus-visible,
+form textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+form button {
+    justify-self: start;
+    padding: 15px 22px;
+    border: 1px solid var(--ink);
+
+    background: var(--ink);
+    color: var(--paper);
+
+    font-family: var(--font-detail);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    transition:
+        background 180ms ease,
+        color 180ms ease,
+        border-color 180ms ease;
+}
+
+form button:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+/* =========================================
+   09. FOOTER / PUBLICATION CREDITS
+   ========================================= */
+
+body > footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    padding: 26px var(--page-gutter);
+    border-top: 1px solid var(--ink);
+
+    font-family: var(--font-detail);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+}
+
+body > footer p {
+    margin: 0;
+}
+
+/* =========================================
+   10. RESPONSIVE LAYOUT
+   ========================================= */
+
+@media (max-width: 700px) {
+    nav {
+        min-height: 68px;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    nav li a {
+        font-size: 0.66rem;
+    }
+
+    #about,
+    #contact {
+        padding: 64px 0;
+    }
+
+    main > section > header h1 {
+        font-size: clamp(3.25rem, 15vw, 6rem);
+        margin-bottom: 60px;
+    }
+
+    #about > section,
+    #contact > section {
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 26px 0 36px;
+    }
+
+    #about > section ul {
+        grid-template-columns: 1fr;
+    }
+
+    body > footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+
+/* Contact editorial details */
+
+#contact address span {
+    font-family: var(--font-detail);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+#contact form select {
+    width: 100%;
+    padding: 14px 0;
+    border: 0;
+    border-bottom: 1px solid var(--ink);
+    border-radius: 0;
+    background: transparent;
+    color: var(--ink);
+    font: inherit;
+    cursor: pointer;
+}
+
+#contact form select:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+}
+
+#contact form select:invalid {
+    color: var(--muted);
+}
+
+#contact form select option {
+    color: var(--ink);
+    background: var(--paper);
+}
+
+#contact form ::placeholder {
+    color: var(--muted);
+    opacity: 1;
+}
+
+#contact form button {
+    margin-top: 8px;
+}
+
+
+/* =====================================
+   EDITORIAL NAVIGATION
+   ===================================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(243, 240, 232, 0.96);
+    border-bottom: 1px solid var(--ink);
+    backdrop-filter: blur(12px);
+}
+
+.site-nav {
+    width: min(100%, var(--page-width));
+    min-height: 76px;
+    margin: auto;
+    padding: 14px var(--page-gutter);
+
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.site-logo {
+    justify-self: start;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.07em;
+}
+
+.site-logo span {
+    color: var(--accent);
+}
+
+.nav-edition {
+    margin: 0;
+    text-align: center;
+    font: 0.62rem var(--font-detail);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+}
+
+.site-nav .nav-links {
+    justify-self: end;
+    display: flex;
+    gap: clamp(14px, 2vw, 28px);
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.site-nav .nav-links a {
+    position: relative;
+    display: inline-block;
+    padding: 8px 0;
+    font: 0.68rem var(--font-detail);
+    text-transform: uppercase;
+}
+
+.site-nav .nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 220ms ease;
+}
+
+.site-nav .nav-links a:hover::after,
+.site-nav .nav-links a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.site-nav .nav-links a span {
+    color: var(--accent);
+}
+
+/* =====================================
+   READING PROGRESS BAR
+   ===================================== */
+
+.reading-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1100;
+    width: 100%;
+    height: 3px;
+    pointer-events: none;
+}
+
+.reading-progress__bar {
+    width: 0;
+    height: 100%;
+    background: var(--accent);
+    transform-origin: left;
+}
+
+/* =====================================
+   MOBILE NAVIGATION
+   ===================================== */
+
+@media (max-width: 760px) {
+    .site-nav {
+        grid-template-columns: 1fr auto;
+        gap: 4px 12px;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
+
+    .nav-edition {
+        grid-column: 1;
+        grid-row: 2;
+        justify-self: start;
+        text-align: left;
+        font-size: 0.55rem;
+    }
+
+    .site-nav .nav-links {
+        grid-column: 2;
+        grid-row: 1 / 3;
+        gap: 12px;
+    }
+
+    .site-nav .nav-links a {
+        font-size: 0.6rem;
+    }
+}
+
+
+/* =========================================
+   11. ART-DIRECTED EDITORIAL ENHANCEMENTS
+   ========================================= */
+
+/* Refined color system */
+:root {
+    --paper: #f3f0e8;
+    --ink: #191919;
+    --muted: #74716b;
+    --rule: #d8d4cb;
+    --accent: #469995;
+
+    --accent-soft: rgba(70, 153, 149, 0.10);
+    --page-gutter: clamp(20px, 5vw, 76px);
+}
+
+/* Better text rendering and page finish */
+html {
+    scroll-behavior: smooth;
+    scrollbar-color: var(--accent) var(--paper);
+    scrollbar-width: thin;
+}
+
+body {
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+}
+
+::selection {
+    background: var(--accent);
+    color: #fff;
+}
+
+/* Refined navigation */
+.site-header {
+    background: rgba(243, 240, 232, 0.94);
+    border-bottom: 1px solid var(--ink);
+    box-shadow: 0 4px 20px rgba(25, 25, 25, 0.025);
+}
+
+.site-logo {
+    transition: opacity 180ms ease;
+}
+
+.site-logo:hover {
+    opacity: 0.65;
+}
+
+.nav-edition {
+    line-height: 1.6;
+}
+
+/* Small editorial detail beneath the navigation */
+.site-header::after {
+    content: "";
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: var(--rule);
+}
+
+/* Stronger section introductions */
+main > section > header {
+    position: relative;
+    padding-bottom: 24px;
+}
+
+main > section > header > p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--muted);
+}
+
+main > section > header > p::before {
+    content: "";
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background: var(--accent);
+}
+
+/* Give oversized headings a more editorial rhythm */
+main > section > header h1 {
+    max-width: 1100px;
+    font-size: clamp(3.5rem, 10vw, 9rem);
+    line-height: 0.86;
+    letter-spacing: -0.09em;
+    text-wrap: balance;
+}
+
+main > section > header h1::after {
+    display: inline;
+    margin-left: 0.025em;
+}
+
+/* Subtle hover treatment for content rows */
+#about > section,
+#contact > section {
+    position: relative;
+    transition: border-color 200ms ease;
+}
+
+#about > section:hover,
+#contact > section:hover {
+    border-top-color: var(--accent);
+}
+
+#about > section h2,
+#contact > section h2 {
+    transition: color 200ms ease;
+}
+
+#about > section:hover h2,
+#contact > section:hover h2 {
+    color: var(--accent);
+}
+
+/* Skill list: turn each item into a small editorial entry */
+#about > section ul li {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    transition: padding-left 200ms ease, color 200ms ease;
+}
+
+#about > section ul li:hover {
+    padding-left: 6px;
+    color: var(--accent);
+}
+
+#about > section ul li::before {
+    content: "+";
+    flex-shrink: 0;
+}
+
+/* Links: more deliberate underline animation */
+address a {
+    text-decoration: none;
+    background-image: linear-gradient(var(--accent), var(--accent));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 1px;
+    transition: background-size 220ms ease, color 220ms ease;
+}
+
+address a:hover {
+    color: var(--ink);
+    background-size: 100% 2px;
+}
+
+/* Contact form: more polished focus states */
+#contact form input,
+#contact form textarea,
+#contact form select {
+    transition: border-color 180ms ease;
+}
+
+#contact form input:focus,
+#contact form textarea:focus,
+#contact form select:focus {
+    border-bottom-color: var(--accent);
+}
+
+#contact form button {
+    min-height: 48px;
+    letter-spacing: 0.04em;
+}
+
+#contact form button:hover {
+    transform: translateY(-2px);
+}
+
+#contact form button:active {
+    transform: translateY(0);
+}
+
+/* Image treatment for your portfolio work */
+.project-image,
+.work-image,
+main img {
+    overflow: hidden;
+}
+
+.project-image img,
+.work-image img,
+main figure img {
+    transition: transform 450ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.project-image:hover img,
+.work-image:hover img,
+main figure:hover img {
+    transform: scale(1.025);
+}
+
+/* Magazine-style captions */
+figcaption,
+.project-caption,
+.work-caption {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 16px;
+    margin-top: 12px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-family: var(--font-detail);
+    font-size: 0.68rem;
+    line-height: 1.6;
+    text-transform: uppercase;
+}
+
+/* Footer as a publication colophon */
+body > footer {
+    position: relative;
+    gap: 24px;
+    letter-spacing: 0.035em;
+}
+
+body > footer p:first-child::before {
+    content: "© ";
+    color: var(--accent);
+}
+
+/* Keyboard accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 5px;
+}
+
+/* Mobile refinement */
+@media (max-width: 700px) {
+    main > section > header h1 {
+        font-size: clamp(3.2rem, 15vw, 6rem);
+        letter-spacing: -0.075em;
+    }
+
+    #about > section,
+    #contact > section {
+        gap: 18px;
+    }
+
+    figcaption,
+    .project-caption,
+    .work-caption {
+        flex-wrap: wrap;
+        gap: 4px 12px;
+    }
+
+    .site-nav {
+        min-height: 68px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+}
+
+
+/* =========================================
+   EDITORIAL BACKGROUND DETAILS
+   ========================================= */
+
+body {
+    background-color: var(--paper);
+
+    /* Soft teal glow + subtle editorial grid */
+    background-image:
+        radial-gradient(
+            circle at 8% 12%,
+            rgba(70, 153, 149, 0.09),
+            transparent 25%
+        ),
+        radial-gradient(
+            circle at 92% 55%,
+            rgba(70, 153, 149, 0.06),
+            transparent 22%
+        ),
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 39px,
+            rgba(25, 25, 25, 0.025) 40px
+        ),
+        repeating-linear-gradient(
+            90deg,
+            transparent 0,
+            transparent 39px,
+            rgba(25, 25, 25, 0.025) 40px
+        );
+    background-attachment: fixed;
+}
+
+/* Fine paper grain */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.12;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+}
+
+/* Small teal editorial markers */
+main > section > header {
+    position: relative;
+}
+
+main > section > header::after {
+    content: "";
+    display: block;
+    width: 54px;
+    height: 3px;
+    margin-top: 18px;
+    background: var(--accent);
+}
+
+/* Fine accent line on the page edges */
+main {
+    position: relative;
+}
+
+main::before {
+    content: "";
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 3px;
+    height: 90px;
+    background: var(--accent);
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Keep the background details subtle on mobile */
+@media (max-width: 700px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    main::before {
+        display: none;
+    }
+}
